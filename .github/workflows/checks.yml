@@ -21,5 +21,5 @@ jobs:
             -
                 name: Test
                 run: docker-compose run  --rm app sh -c "python manage.py wait_for_db &&
-                                                         waitpython manage.py test"
+                                                         python manage.py test"
 
