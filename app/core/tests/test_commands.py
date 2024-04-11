@@ -4,12 +4,10 @@ from django.test import SimpleTestCase
 from unittest.mock import patch
 from django.core.management import call_command
 
-from time import sleep
 
 @patch('core.management.commands.wait_for_db.Command.check')
 class CommandTests(SimpleTestCase):
 
-    
     def test_wait_for_db_ready(self, patched_check):
         "A test case for ready database"
         patched_check.return_value = True
@@ -18,9 +16,8 @@ class CommandTests(SimpleTestCase):
 
         patched_check.assert_called_once_with(databases=['default'])
 
-    
     @patch('time.sleep')
-    def test_wait_for_db(self,patched_sleep, patched_check):
+    def test_wait_for_db_delay(self,patched_sleep, patched_check):
         "A test case for a starting database"
         patched_check.side_effect = [Psycopg2OpError]*2 + [OperationalError]*3 + [True]
 
