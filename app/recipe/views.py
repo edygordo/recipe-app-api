@@ -16,7 +16,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return self.get_queryset.filter(user=self.request.user).order_by('-id') # This self.request will be None if user not authenticated
+        return self.queryset.filter(user=self.request.user).order_by('-id') # This self.request will be None if user not authenticated
     
     def get_serializer_class(self):
         "Return proper serializer class for requests"
