@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
         " A function to handle creating a user. "
         email = self.normalize_email(email=email)
         email_regex = (
-            "^[^@\s#$%*()&~`!\^]+@[^@\s#$%*()&~`!\^]+\.(com|net|org|gov|example)$" #noqa
+            "^[^@\s#$%*()&~`!\^]+@[^@\s#$%*()&~`!\^]+\.(com|net|org|gov|example)$" # noqa
         )
         valid = re.match(pattern=email_regex, string=email)
         if valid is None:
