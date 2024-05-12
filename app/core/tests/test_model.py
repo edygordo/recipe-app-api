@@ -11,7 +11,7 @@ class ModelTests(TestCase):
         "Create a user and test it's in db"
         email = "aditya@example.com"
         password = "changeme"
-        user = get_user_model().objects.create_user(email=email, password=password)
+        user = get_user_model().objects.create_user(email=email, password=password) #noqa
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(raw_password=password))
 
@@ -48,7 +48,7 @@ class ModelTests(TestCase):
 
         for email in emails:
             with self.assertRaises(ValueError):
-                user = get_user_model().objects.create_user(email=email)
+                user = get_user_model().objects.create_user(email=email) #noqa
 
     def test_creating_superuser(self):
         "Test a super user creation"
@@ -56,7 +56,7 @@ class ModelTests(TestCase):
         email = "aditya@example.com"
         password = "test123"
 
-        user = get_user_model().objects.create_superuser(email=email, password=password)
+        user = get_user_model().objects.create_superuser(email=email, password=password) #noqa
 
         self.assertTrue(user.is_staff)
         self.assertTrue(user.is_superuser)
@@ -68,7 +68,7 @@ class ModelTests(TestCase):
             email="test@example.com", password="testpass123", name="Test User"
         )
         recipe = models.Recipe(
-            user, title="Example Recipe", time_minutes=5, price=Decimal("102.30")
+            user, title="Example Recipe", time_minutes=5, price=Decimal("102.30") #noqa
         )
 
         self.assertEqual(recipe.time_minutes, 5)

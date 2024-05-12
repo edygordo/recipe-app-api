@@ -7,13 +7,14 @@ from django.contrib.auth.models import (
 import re
 from django.conf import settings
 
+
 # Create your models here.
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_field):
         " A function to handle creating a user. "
         email = self.normalize_email(email=email)
         email_regex = (
-            "^[^@\s#$%*()&~`!\^]+@[^@\s#$%*()&~`!\^]+\.(com|net|org|gov|example)$"
+            "^[^@\s#$%*()&~`!\^]+@[^@\s#$%*()&~`!\^]+\.(com|net|org|gov|example)$" #noqa
         )
         valid = re.match(pattern=email_regex, string=email)
         if valid is None:
