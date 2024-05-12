@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0002_rename_desription_recipe_description'),
+        ("core", "0002_rename_desription_recipe_description"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='is_active',
+            model_name="user",
+            name="is_active",
             field=models.BooleanField(default=True),
         ),
     ]

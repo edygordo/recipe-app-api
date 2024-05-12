@@ -1,6 +1,6 @@
 "Views for Recipe API"
 
-from rest_framework import  viewsets
+from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
@@ -16,11 +16,13 @@ class RecipeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return self.queryset.filter(user=self.request.user).order_by('-id') # This self.request will be None if user not authenticated
-    
+        return self.queryset.filter(user=self.request.user).order_by(
+            "-id"
+        )  # This self.request will be None if user not authenticated
+
     def get_serializer_class(self):
         "Return proper serializer class for requests"
-        if self.action == 'list':
+        if self.action == "list":
             return serializers.RecipeSerializer
-        
+
         return self.serializer_class
