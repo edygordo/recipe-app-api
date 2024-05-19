@@ -62,10 +62,12 @@ class Recipe(models.Model):
         "Overriden DunDer method"
         return self.title
 
+
 class Tag(models.Model):
     "Tags for filtering recipe."
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, 
+                             on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
 
     def __str__(self):

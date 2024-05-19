@@ -4,8 +4,9 @@ from core import models
 from decimal import Decimal
 
 
-def create_user(email='test@example.com', name='Test User', password='testpass123'):
-    return get_user_model().objects.create_user(email=email, name=name, password=password)
+def create_user(email='test@example.com', name='Test User', password='testpass123'): # noqa
+    return get_user_model().objects.create_user(email=email, name=name, password=password) # noqa
+
 
 class ModelTests(TestCase):
     "A class to handle tests over models present inside core app"
